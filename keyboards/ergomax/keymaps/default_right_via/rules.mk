@@ -1,0 +1,5 @@
+VIA_ENABLE = yes
+
+# Reduce firmware size
+LINK_TIME_OPTIMIZATION_ENABLE = yes
+MOUSEKEY_ENABLE = no
