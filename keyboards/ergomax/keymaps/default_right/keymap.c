@@ -31,7 +31,7 @@ enum custom_keycodes {
 #define LUP_TG TG(_UP)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BL] = LAYOUT( /* Base */
+  [_BL] = LAYOUT_ergomax_right( /* Base */
              KC_F7,       KC_F8, KC_F9,   KC_F10,   KC_F11,  KC_F12,                  \
              KC_RBRACKET, KC_6,  KC_7,    KC_8,     KC_9,    KC_0,      KC_MINUS,     \
              LUP_TG,      KC_Y,  KC_U,    KC_I,     KC_O,    KC_P,      KC_EQUAL,     \
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_HOME, KC_ENTER,    KC_SPACE,                                                 \
       KC_END
   ),
-  [_UP] = LAYOUT(
+  [_UP] = LAYOUT_ergomax_right(
              RESET,       KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,              \
              KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    \
              LUP_TG,      KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    \
