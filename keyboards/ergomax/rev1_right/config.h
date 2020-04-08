@@ -20,8 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x0140
-#define PRODUCT_ID      0x0202
+#define VENDOR_ID       0x1140
+#define PRODUCT_ID      0x1202
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    LouWii
 #define PRODUCT         Ergomax Right
