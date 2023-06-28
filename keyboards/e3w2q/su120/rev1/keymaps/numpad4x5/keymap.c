@@ -30,7 +30,9 @@ enum custom_keycodes {
   SEND_SA3, SEND_SB3, SEND_SC3, SEND_SD3, SEND_SE3, SEND_SF3, SEND_SG3, SEND_SH3, SEND_SI3, SEND_SJ3, 
   SEND_SA4, SEND_SB4, SEND_SC4, SEND_SD4, SEND_SE4, SEND_SF4, SEND_SG4, SEND_SH4, SEND_SI4, SEND_SJ4, 
   SEND_SA5, SEND_SB5, SEND_SC5, SEND_SD5, SEND_SE5, SEND_SF5, SEND_SG5, SEND_SH5, SEND_SI5, SEND_SJ5, 
-  SEND_SA6, SEND_SB6, SEND_SC6, SEND_SD6, SEND_SE6, SEND_SF6, SEND_SG6, SEND_SH6, SEND_SI6, SEND_SJ6  
+  SEND_SA6, SEND_SB6, SEND_SC6, SEND_SD6, SEND_SE6, SEND_SF6, SEND_SG6, SEND_SH6, SEND_SI6, SEND_SJ6,
+
+  SEND_00
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -60,7 +62,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_P7,    KC_P8,    KC_P9,    KC_PAST,  KC_PSLS,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     KC_P4,    KC_P5,    KC_P6,    KC_PPLS,  KC_PMNS,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     KC_P1,    KC_P2,    KC_P3,    KC_UP,   KC_ENT,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    KC_P0,  KC_PDOT,  KC_LEFT,  KC_DOWN,  KC_RGHT,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    LT(1, KC_P0),  KC_PDOT,  KC_LEFT,  KC_DOWN,  KC_RGHT,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+
     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
 
@@ -72,10 +75,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     SEND_SA6, SEND_SB6, SEND_SC6, SEND_SD6, SEND_SE6, SEND_SF6, SEND_SG6, SEND_SH6, SEND_SI6, SEND_SJ6  
 
   ),
+
+    [1] = LAYOUT(
+    _______,  _______,  _______,  _______,  KC_BSPC,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    LGUI(KC_X), LGUI(KC_C), LGUI(KC_V),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  SEND_00,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  EEP_RST,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RESET,    
+
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  
+    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______   
+  ),
+
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case SEND_00:
+      if (record->event.pressed) {
+        // when keycode SEND_00 is pressed
+        SEND_STRING("00");
+      } else {
+        // when keycode SEND_00 is released
+      }
+      break;
+
     case SEND_A1: if (record->event.pressed) SEND_STRING("A1"); break;
     case SEND_B1: if (record->event.pressed) SEND_STRING("B1"); break;
     case SEND_C1: if (record->event.pressed) SEND_STRING("C1"); break;
